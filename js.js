@@ -878,43 +878,43 @@
 
 // сравнение результата и вывод сообщения
 
-let exit = false;
-const signList = ["rock", "papper", "scissors"];
-const winnerList = ["user", "computer", "nobody"];
+// let exit = false;
+// const signList = ["rock", "papper", "scissors"];
+// const winnerList = ["user", "computer", "nobody"];
 
-while (exit === false) {
-    const userSign = prompt("Введите число в зависимости от своего выбора : Если камень - 1, если бумага - 2, если ножницы - 3");
-    if (userSign !== "3" && userSign !== "2" && userSign !== "1") {
-        alert("reload page to try again"); 
-        break;
-    }
-    const compSign = (Math.floor(Math.random() * (4 - 1) + 1));
-    let winner = "";
-    switch (userSign) {
-        case "1":
-            if (compSign === 1) {winner = winnerList[2];}
-            if (compSign === 2) {winner = winnerList[1];}
-            if (compSign === 3) {winner = winnerList[0];}
-            break;
+// while (exit === false) {
+//     const userSign = prompt("Введите число в зависимости от своего выбора : Если камень - 1, если бумага - 2, если ножницы - 3");
+//     if (userSign !== "3" && userSign !== "2" && userSign !== "1") {
+//         alert("reload page to try again"); 
+//         break;
+//     }
+//     const compSign = (Math.floor(Math.random() * (4 - 1) + 1));
+//     let winner = "";
+//     switch (userSign) {
+//         case "1":
+//             if (compSign === 1) {winner = winnerList[2];}
+//             if (compSign === 2) {winner = winnerList[1];}
+//             if (compSign === 3) {winner = winnerList[0];}
+//             break;
 
-        case "2":
-            if (compSign === 1) {winner = winnerList[0];}
-            if (compSign === 2) {winner = winnerList[2];}
-            if (compSign === 3) {winner = winnerList[1];}
-            break;
+//         case "2":
+//             if (compSign === 1) {winner = winnerList[0];}
+//             if (compSign === 2) {winner = winnerList[2];}
+//             if (compSign === 3) {winner = winnerList[1];}
+//             break;
 
-        case "3":
-            if (compSign === 1) {winner = winnerList[1];}
-            if (compSign === 2) {winner = winnerList[0];}
-            if (compSign === 3) {winner = winnerList[2];}
-            break;
+//         case "3":
+//             if (compSign === 1) {winner = winnerList[1];}
+//             if (compSign === 2) {winner = winnerList[0];}
+//             if (compSign === 3) {winner = winnerList[2];}
+//             break;
 
-        default :
-            break;
-    }
+//         default :
+//             break;
+//     }
 
-    alert(`Your sign is ${signList[Number(userSign) - 1]}. Computer sign is ${signList[compSign - 1]}. Winner is ${winner}`)
-}
+//     alert(`Your sign is ${signList[Number(userSign) - 1]}. Computer sign is ${signList[compSign - 1]}. Winner is ${winner}`)
+// }
 
 
 
