@@ -1,3 +1,5 @@
+////////////////////////////////////////МАССИВЫ///////////////////////////////////////////////////////////
+
 //split()
 
 // const name = "Mango";
@@ -128,7 +130,7 @@
 
 // console.log(a);
 // console.log(b);
-////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////ПРАКТИКА/////////////////////////////////////////////////////
 //посчитать сумму покупок
 
 // const cart = [54, 28, 105, 70, 92, 17, 120];
@@ -190,7 +192,7 @@
 
 //     //4 если четный плюсуем к total
 //         total += numbers[i];
-        
+
 //     }
 // }
 // console.log("Total =", total);
@@ -289,7 +291,7 @@
 // let biggerNumber = numbers[0];
 
 // for (const number of numbers) {
-    
+
 //     if (number > biggerNumber) {
 
 //         biggerNumber = number;
@@ -350,20 +352,534 @@
 
 ///ЛУЧШЕ///
 
-const string = "JavaScript";
-const letters = string.split("");
-let invertedString = "";
+// const string = "JavaScript";
+// const letters = string.split("");
+// let invertedString = "";
 
-console.log(letters);
+// console.log(letters);
 
-for (const letter of letters) {
+// for (const letter of letters) {
 
-    console.log(letter);
+//     console.log(letter);
 
-    invertedString +=
-        letter === letter.toLowerCase()
-            ? letter.toUpperCase()
-            : letter.toLowerCase();
-}
+//     invertedString +=
+//         letter === letter.toLowerCase()
+//             ? letter.toUpperCase()
+//             : letter.toLowerCase();
+// }
 
-console.log("invertedString: ", invertedString);
+// console.log("invertedString: ", invertedString);
+
+//////////////////////////////////////////////////////////
+
+// ДЕЛАЕМ SLUG В URL ИЗ НАЗВАНИЯ СТАТЬИ
+
+//     - НОРМАЛИЗУЕМ СТРОКУ
+//     - ЗАЗБИВАЕМ ПО СЛОВАМ
+//     - СШИВАЕМ В СТРУКТУРУ С РАЗДЕЛИТЕЛЯМИ
+
+//ДОЛЖНО ПОЛУЧИТЬСЯ top-10-benefits-of-react-framework
+
+// const title = 'Top 10 benefits of React framework';
+
+// const normalizedTitle = title.toLowerCase();
+// console.log(normalizedTitle);
+
+// const words = normalizedTitle.split(' ');
+// console.log(words);
+
+// const slug = words.join('-');
+// console.log(slug);
+
+//А УДОБНЕЕ И КОРОЧЕ ТАК:
+
+// const title = 'Top 10 benefits of React framework';
+
+// const slug1 = title.toLowerCase().split(' ').join('-');
+
+// console.log(slug1);
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+//НАПИШИ СКРИПТ КОТОРЫЙ СЧИТАЕТ СУММУ ЭЛЕМЕНТОВ ДВУХ МАССИВОВ
+
+//ПРИМИТИВ
+
+// const array1 = [5, 10, 15, 20];
+// const array2 = [10, 20, 30];
+// let total = 0;
+
+
+// for (let i = 0; i < array1.length; i += 1) {
+//     total += array1[i];
+// }
+
+// for (let i = 0; i < array2.length; i += 1) {
+//     total += array2[i];
+// }
+
+// console.log(total);
+
+/// МЕТОД НАМНОГО ЛУЧШЕ И ПРАВИЛЬНЕЕ
+
+// const array1 = [5, 10, 15, 20];
+// const array2 = [10, 20, 30];
+// let total = 0;
+
+// const numbers = array1.concat(array2);
+
+// for (const number of numbers) {
+//     total += number;
+// }
+
+// console.log(total);
+
+///////////////////////////////////////////////////////////////////////////////
+
+// РАБОТАЕМ С КОЛЛЕКЦИЕЙ КАРТОЧЕК В ТРЕЛЛО
+
+// МЕТОД SPLICE
+//     - УДАЛИТЬ
+//     - ДОБАВИТЬ
+//     - ОБНОВИТЬ
+
+//УДАЛЕНИЕ
+
+// const cards = [
+//     'Карточка-1',
+//     'Карточка-2',
+//     'Карточка-3',
+//     'Карточка-4',
+//     'Карточка-5'
+// ];
+
+// console.table(cards);
+
+// // УДАЛЕНИЕ ЭЛЕМЕНТОВ ПО ИНДЕКСУ, indexOf()
+
+// const cardToRemove = 'Карточка-3';
+
+// const index = cards.indexOf(cardToRemove);
+// console.log(index);
+
+// cards.splice(index, 1)
+// //console.log(cards.splice(index, 1)); ПОКАЗЫВАЕТ МАССИВ УДАЛЕННЫХ ЭЛЕМЕНТОВ
+
+// console.table(cards);
+
+//ДОБАВЛЕНИЕ ЭЛЕМЕНТОВ ПО ИНДЕКСУ
+
+// const cardToInsert = 'Карточка-6';
+
+// const index = 3;
+
+// cards.splice(index, 0, cardToInsert);
+
+// ( 0 - ЭТО КОЛЛИЧЕСТВО ЭЛЕМЕНТОВ КОТОРЫХ НУЖНО УДАЛИТЬ)
+
+// console.table(cards);
+
+//ОБНОВЛЕНИЕ ЭЛЕМЕНТОВ ПО ИНДЕКСУ
+
+// const cardToUpdate = 'Карточка-4';
+
+// const index = cards.indexOf(cardToUpdate);
+
+// console.log(index);
+
+// cards.splice(index, 1, 'Обновленная карточка-4');
+
+// console.table(cards);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////   ФУНКЦИИ   /////////////////////////////////////////////////////////////////////////////////////////
+
+// 1. Объявление параметров x, y, z
+// function multiply(x, y, z) {
+//   console.log(`Результат умножения равен ${x * y * z}`);
+// }
+
+// // 2. Передача аргументов
+// multiply(2, 3, 5); // Результат умножения равен 30
+// multiply(4, 8, 12); // Результат умножения равен 384
+// multiply(17, 6, 25); // Результат умножения равен 2550
+
+// //ОПЕРАТОР RETURN
+
+// function multiply(x, y, z) {
+//   console.log("Код до return выполняется как обычно");
+
+//   // Возвращаем результат выражения умножения
+//   return x * y * z;
+
+//   console.log("Этот лог никогда не выполнится, он стоит после return");
+// }
+
+// // Результат работы функции можно сохранить в переменную
+// let result = multiply(2, 3, 5);
+// console.log(result); // 30
+
+// result = multiply(4, 8, 12);
+// console.log(result); // 384
+
+// result = multiply(17, 6, 25);
+// console.log(result); // 2550
+
+//////////////Паттерн «Ранний возврат»//////////////////////
+
+// function withdraw(amount, balance) {
+//     if (amount === 0) {
+//         console.log("Для проведения операции введите сумму больше нуля");
+//         return;
+//     } else if (amount > balance) {
+//         console.log("Недостаточно средств на счету");
+//         return;
+//     }   else {
+//     console.log("Операция снятия средств проведена успешно");
+//     }
+// }
+
+// withdraw(0, 300); // "Для проведения операции введите сумму больше нуля"
+// withdraw(500, 300); // "Недостаточно средств на счету"
+// withdraw(100, 300); // "Операция снятия средств проведена успешно"
+
+// ///////////////////Функциональное выражение//////////////////////////
+
+// // Объявление функции (function declaration)
+// function multiply(x, y, z) {
+//   console.log(`Результат умножения равен ${x * y * z}`);
+// }
+
+// // Функциональное выражение (function expression)
+// const multiply = function (x, y, z) {
+//   console.log(`Результат умножения равен ${x * y * z}`);
+// };
+
+//////////////////////////////////////////ПРАКТИКА///////////////////////////////
+
+// const add = function (x, y) {
+//     console.log(x);
+//     console.log(y);
+//     console.log('Выполняется функция add');
+
+//     return x = y;
+// }
+
+// const r1 = add(5, 3);
+// console.log('r1: ', r1);
+
+// const r2 = add(10, 15);
+// console.log('r2: ', r2);
+
+// const r3 = add(30, 50);
+// console.log('r3: ', r3);
+
+///////////////////////////////////
+
+// const fn = function () {
+
+//     console.log(1);
+
+//     return 555;
+
+//     console.log(2);
+
+//     console.log(3);
+
+// }
+
+// console.log('Результат функции: ', fn());
+
+//////////////////////////////////////////////
+
+// const fn = function (value) {
+
+//     console.log(1);
+//     console.log(2);
+
+//     if (value < 50) {
+//         return 'Меньше чем 50';
+//     }
+//     return 'Больше чем 50';
+// };
+
+// console.log('Результат функции: ', fn(10));
+// console.log('Результат функции: ', fn(1000));
+
+///////////////////////////////////////////////////////////
+
+// СТЕК ВЫЗОВА
+// STACK TRACE И ПОИСК ОШИБОК
+
+// const FnA = function () {
+//     console.log('выполняется функция A');
+// };
+
+// const FnB = function () {
+//     console.log('выполняется функция В');
+// };
+
+// const FnС = function () {
+//     console.log('выполняется функция С');
+// };
+
+// console.log('лог перед вызовом фукции А');
+// FnA();
+// console.log('лог после вызовом фукции А');
+// console.log('лог перед вызовом фукции В');
+// FnB();
+// console.log('лог после вызовом фукции В');
+// console.log('лог перед вызовом фукции С');
+// FnС();
+// console.log('лог после вызовом фукции С');
+
+///////////////////////////////////ПРАКТИКА////////////////////////////////////////
+
+//НАПИШИ ФУНКЦИЮ calculateTotalPrice, КОТОРАЯ ПРИНИМАЕТ МАССИВ ЦЕН И ВОЗВРАЩАЕТ ИХ СУММУ
+
+// const calculateTotalPrice = function (items) {
+//     console.log('items внутри функции: ', items);
+
+//     let total = 0;
+
+//     for (const item of items) {
+//         total += item;
+//     }
+
+//     return total;
+// }
+
+// const r1 = calculateTotalPrice([1, 2, 3]);
+
+// console.log(`общая сумма: ${r1}`);
+// console.log(calculateTotalPrice([5, 10, 15, 20]));
+// console.log(calculateTotalPrice([100, 200, 300]));
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+//НАПИШИ ФУНКЦИЮ logItems(items) ДЛЯ ПЕРЕБОРА И ЛОГИРОВАНИЯ МАССИВА
+
+// const logItems = function(items) {
+// for (const item of items) {
+//         console.log(item);
+//     }
+// }
+
+// logItems(['Mabgj', 'Kiwi', 'Poly', 'Ajax']);
+
+// logItems([1, 2, 3, 4, 5]);
+
+// logItems(['клавиатура', 'наушники', 'часы']);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+// НАПИШИ ФУНКЦИЮ findLogin(allLogins, login) ДЛЯ ПОИСКА ЛОГИНА
+
+
+// const logins = ["m4ngoDoge", "kiwidab3st", "poly1scute", "aj4xth3m4n"];
+
+// const findLogin = function (allLogins, loginToFind) {
+
+//     let message = `Пользователь ${loginToFind} не найден`;
+
+//     for (const login of allLogins) {
+//         if (login === loginToFind) {
+
+//             message = `Пользователь ${loginToFind} найден`;
+
+//             return message;
+//         }
+//     }
+
+//     return message;
+// }
+
+// console.log(findLogin(logins, 'avocod3r'));
+
+// console.log(findLogin(logins, 'kiwidab3st'));
+
+// console.log(findLogin(logins, 'jam4l'));
+
+// console.log(findLogin(logins, 'poly1scute'));
+
+////ПЕРЕМЕННАЯ message НЕ НУЖНА!!!////
+
+// const logins = ["m4ngoDoge", "kiwidab3st", "poly1scute", "aj4xth3m4n"];
+
+// const findLogin = function (allLogins, loginToFind) {
+
+//     for (const login of allLogins) {
+
+//         if (login === loginToFind) {
+
+//             return `Пользователь ${loginToFind} найден`;
+//         }
+//     }
+
+//     return `Пользователь ${loginToFind} не найден`;
+// }
+
+// console.log(findLogin(logins, 'avocod3r'));
+
+// console.log(findLogin(logins, 'kiwidab3st'));
+
+// console.log(findLogin(logins, 'jam4l'));
+
+// console.log(findLogin(logins, 'poly1scute'));
+
+////// ЕЩЕ КОРОЧЕ И ЧЕРЕЗ ТЕРНАРНИК /////
+
+// const logins = ["m4ngoDoge", "kiwidab3st", "poly1scute", "aj4xth3m4n"];
+
+// const findLogin = function (allLogins, loginToFind) {
+
+//     return allLogins.includes(loginToFind)
+//         ? `Пользователь ${loginToFind} найден`
+//         : `Пользователь ${loginToFind} не найден`
+// };
+
+// console.log(findLogin(logins, 'avocod3r'));
+
+// console.log(findLogin(logins, 'kiwidab3st'));
+
+// console.log(findLogin(logins, 'jam4l'));
+
+// console.log(findLogin(logins, 'poly1scute'));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//ПОИСК САМОГО МАЛЕНЬКОГО ЧИСЛА В МАССИВЕ, ПРИ УСЛОВИИ ЧТО ЧИСЛА УНИКАЛЬНЫЕ (НЕТ ПОВТОРОВ)
+
+// const findSmallestNumber = function (numbers) {
+//     let smallestNumber = numbers[0];
+
+//     for (const number of numbers) {
+//         if (number < smallestNumber) {
+//             smallestNumber = number;
+//         }
+//     }
+
+//     return smallestNumber;
+// };
+
+// console.log(findSmallestNumber([3, 8, 12, -2, 15]));
+// console.log(findSmallestNumber([100, 54, 8, 12, 47]));
+// console.log(findSmallestNumber([7, 21, 84, 15, 4]));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// НАПИИШИ ФУНКЦИЮ  changeCase(string) КОТОРАЯ ЗАМЕНЯЕТ РЕГИСТР КАЖДОГО СИМВОЛА НА ПРОТИВОПОЛОЖНЫЙ
+// НАПРИМЕР ЕСЛИ СТРОКА "JavaScript", ТО НА ВЫХОДЕ "jAVAsCRIPT"
+
+// const changeCase = function (string) {
+//     const letters = string.split('');
+//     let invertedString = '';
+
+//     for (const letter of letters) {
+//         const isInLowerCase = letter === letter.toLowerCase();
+
+//         invertedString += isInLowerCase
+//             ? letter.toUpperCase()
+//             : letter.toLowerCase();
+//     }
+
+//     return invertedString;
+// }
+
+// console.log(changeCase('qweRTY'));
+// console.log(changeCase('mAnGo'));
+// console.log(changeCase('AjAx'));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+// НАПИШИ ФУНКЦИЮ slugify(string) КОТОРАЯ ПОЛУЧАЕТ СТРОЧКУ И ВОЗВРАЩАЕТ URL-slug
+// строка состоит только из букв и пробелов
+
+// const slugify = function (string) {
+
+//     return string.toLowerCase().split(' ').join('-');
+// }
+
+// console.log(slugify('Top 10 benefits of React framework'));
+// console.log(slugify('Azure Static Web Apps are Awesome'));
+// console.log(slugify('Technical writing tips for non-native English speakers'));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ПСЕВДОМАССИВ arguments И Arraym.from И ...
+
+//////////////////Array.from////////////////
+
+// const fn = function () {
+//     console.log(arguments);
+
+//     const args = Array.from(arguments);
+
+//     console.log(args);
+// };
+
+// fn(1, 2, 3);
+// fn(1, 2, 3, 4, 5);
+// fn(1, 2, 3, 4, 5, 6, 7);
+
+////////////Операция ... (rest)//////////
+
+// const fn = function (...args) {
+//     console.log(args);
+// };
+
+// fn(1, 2, 3);
+// fn(1, 2, 3, 4, 5);
+// fn(1, 2, 3, 4, 5, 6, 7);
+
+/////////////
+
+// const fn = function (a, b, c, ...args) {
+//     console.log(`${a}, ${b}, ${c}`);
+//     console.log(args);
+// };
+
+// fn('hello', 1, 2, 3);
+// fn('aloha', 1, 2, 3, 4, 5);
+// fn('hi', 1, 2, 3, 4, 5, 6, 7);
+
+// Напиши функцию add для сложения произвольного колличества элементов(чисел)
+//     - Операция ... (rest)
+
+// const add = function (...args) {
+//     console.log(args);
+
+//     let total = 0;
+
+//     for (const arg of args) {
+//         total += arg;
+//     }
+
+//     return total;
+// };
+
+// console.log(add(1, 2, 3));
+// console.log(add(1, 2, 4, 5, 6));
+
+////////////////////////////////////////////////////////////////////////////////////////
+// напиши функцию filterNumbers(Array[, number1, ...]) которая:
+//     - первым аргументом принимает массив чисел
+//     - после первого аргумента может быть произвольное колличество других аргументов, которые будут числами
+//     - функция должна вернуть новый массив в котором будут только те элементы, начиная со второго
+//     - для которых есть аналог в оригинальном массиве
+
+// const filterNumbers = function (array, ...args) {
+//     console.log('array: ', array);
+//     console.log('args: ', args);
+//     const uniqueElements = [];
+
+//     for (const element of array) {
+//         if (args.includes(element)) {
+//             uniqueElements.push(element);
+//             console.log(`${element} есть везде!`);
+//         }
+//     }
+//     return uniqueElements;
+// };
+
+// console.log(filterNumbers([1, 2, 3, 4, 5], 10, 15, 2, 3, 8));
+// console.log(filterNumbers([10, 15, 25, 30], 23, 30, 18, 15));
+// console.log(filterNumbers([100, 200, 300, 400, 500], 7, 12, 2, 200, 64));
+
+
